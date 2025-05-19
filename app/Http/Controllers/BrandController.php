@@ -9,14 +9,11 @@ use Illuminate\Support\Facades\Cache;
 class BrandController extends Controller
 {
     public function BrandList(){
-  
-       return Cache::remember('BrandList',360,function(){
+
+       return Cache::remember('BrandList',3600,function(){
 
              return Brand::all();
         });
-         
-        //  $data = 
-        //   return $data;
-         
     }
+
 }

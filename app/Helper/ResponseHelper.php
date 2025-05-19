@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use Exception;
 
- class ResponseHelper{
 
-     public static function out
+ class ResponseHelper extends Controller{
+
+     public  function BrandList(){
+
+        $data = Brand::all();
+
+        return  ResponseHelper:: Out('success',$data,200);
+
+     }
  }
 
 
