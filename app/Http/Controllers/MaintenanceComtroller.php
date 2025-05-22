@@ -9,7 +9,8 @@ class MaintenanceComtroller extends Controller
 {
      function ClearAppCache(){
 
-          Artisan::call('casche:clear');
+          Artisan::call('cache:clear');
+
           return 1;
 
      }

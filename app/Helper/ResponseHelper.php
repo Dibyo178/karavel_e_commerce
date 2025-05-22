@@ -6,15 +6,12 @@ use App\Models\Brand;
 use Exception;
 
 
- class ResponseHelper extends Controller{
+ class ResponseHelper{
 
-     public  function BrandList(){
+    public static function Out($msg,$data,$code){
+        return response()->json(['msg'=>$msg,'data'=>$data],$code);
+    }
 
-        $data = Brand::all();
-
-        return  ResponseHelper:: Out('success',$data,200);
-
-     }
  }
 
 

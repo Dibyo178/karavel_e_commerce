@@ -13,7 +13,7 @@ class PolicyController extends Controller
         $type = $request->type;
 
 
-        return Cache::remember('PolicyByType', 3600, function () use ($type) {
+        return Cache::remember('PolicyByType'.$type, 3600, function () use ($type) {
 
             return Policy::where('type', '=', $type)->first();
         });
