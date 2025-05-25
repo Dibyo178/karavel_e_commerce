@@ -26,5 +26,7 @@ Route::get('/ProductDetailsById/{id}',[ProductController::class,'ProductDetailsB
 // user controller
 Route::get('/SendOtp/{UserEmail}',[UserController::class,'SendOtp']);
 
+Route::get('/SendOtpLater/{UserEmail}',[UserController::class,'SendOtpLater']);
+
 
 Route::get('/ClearAppCache',[MaintenanceComtroller::class,'ClearAppCache']);
