@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MaintenanceComtroller;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,6 +20,16 @@ Route::get('/ListProductByRemark/{remark}',[ProductController::class,'ListProduc
 Route::get('/ListProductByBrand/{id}',[ProductController::class,'ListProductByBrand']);
 Route::get('/ListProductBySlider',[ProductController::class,'ListProductBySlider']);
 Route::get('/ProductDetailsById/{id}',[ProductController::class,'ProductDetailsById']);
+Route::get('/ListReviewByProduct/{product_id}',[ProductController::class,'ListReviewByProduct']);
 
 
-Route::get('/ClearAppCache',[MaintenanceComtroller::class,'ClearAppCache']);
+
+// user controller
+Route::get('/UserLogin/{UserEmail}',[UserController::class,'UserLogin']);
+
+
+
+// Route::get('/ClearAppCache',[MaintenanceComtroller::class,'ClearAppCache']);
+
+// User Auth
+// Route::get('')
