@@ -11,6 +11,6 @@ class User extends Model
      public function profile():HasOne
 
       {
-         return $this->hasOne(CustomrProfile::class);
+         return $this->hasOne(CustomerProfile::class);
       }
 }

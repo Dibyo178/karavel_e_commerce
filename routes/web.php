@@ -5,7 +5,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MaintenanceComtroller;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\TokenAuthenticate;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,8 +28,13 @@ Route::get('/ListReviewByProduct/{product_id}',[ProductController::class,'ListRe
 
 // user controller
 Route::get('/UserLogin/{UserEmail}',[UserController::class,'UserLogin']);
+Route::get('/VerifyLogin/{UserEmail}/{OTP}',[UserController::class,'VerifyLogin']);
 
 
+// user profile
+
+Route::post('/CreateProfile',[ProfileController::class,'CreateProfile'])->middleware([TokenAuthenticate::class]);
+Route::get('/ReadProfile',[ProfileController::class,'ReadProfile'])->middleware([TokenAuthenticate::class]);
 
 // Route::get('/ClearAppCache',[MaintenanceComtroller::class,'ClearAppCache']);
 

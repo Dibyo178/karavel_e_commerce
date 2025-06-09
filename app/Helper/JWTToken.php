@@ -26,27 +26,19 @@ class JWTToken
     public static function ReadToken($token)
     {
 
-
         try {
 
             if ($token == null) {
 
                 return 'unauthorized';
             } else {
-
-
                 $key = env('JWT_KEY');
-
                 return JWT::decode($token, new Key($key, 'HS256'));
             }
         } catch (Exception $e) {
 
             return 'unauthorized';
         }
-
-
-
-
 
         //  public static function VerifyToken(){
 
