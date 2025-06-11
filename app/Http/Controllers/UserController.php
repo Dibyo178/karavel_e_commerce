@@ -20,16 +20,10 @@ class UserController extends Controller
 
         try {
 
-    $UserEmail = $request->UserEmail;
-
+        $UserEmail = $request->UserEmail;
         $OTP = rand(100000, 999999);
         $details = ['code' => $OTP];
-
-        //   Mail::to($UserEmail)->send(new OTPEmail($details));
-
-
-        SendEmailJob::dispatch($UserEmail, new OTPEmail($details));
-
+        Mail::to($UserEmail)->send(new OTPEmail($details));
         User::updateOrCreate(['email' => $UserEmail], ['email' => $UserEmail, 'otp' => $OTP]);
             return ResponseHelper::Out('success', "A 6 digit otp send your email", 200);
         } catch (Exception $e) {
