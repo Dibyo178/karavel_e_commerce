@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CustomrProfile extends Model
+class CustomerProfile extends Model
 {
-   protected $fillable=[
+    protected $fillable=[
 
      'cus_name',
      'cus_add',
@@ -25,4 +25,11 @@ class CustomrProfile extends Model
      'user_id',
 
    ];
+
+   public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
+
+
 }
