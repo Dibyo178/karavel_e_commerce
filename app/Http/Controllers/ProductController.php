@@ -153,7 +153,7 @@ class ProductController extends Controller
       public function RemoveWishList(Request $request)
     {
         $user_id = $request->header('id');
-        $data = ProductWish::where(['user_id'=>$user_id,'product_id'=>$request->product_id]);
+        $data = ProductWish::where(['user_id'=>$user_id,'product_id'=>$request->product_id])->delete();
         return ResponseHelper::Out('success', $data, 200);
     }
 
