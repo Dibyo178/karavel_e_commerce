@@ -166,20 +166,20 @@ class ProductController extends Controller
          $size =$request->input('size');
         $qty  = $request->input('qty');
 
-        $Unitprice = 0;
+        $UnitPrice = 0;
 
         $productDetails = Product::where('id','=',$product_id)->first();
 
         if($productDetails->discount==1){
 
-            $Unitprice = $productDetails->discount_price;
+            $UnitPrice = $productDetails->discount_price;
         }
 
         else{
-            $Unitprice = $productDetails->price;
+            $UnitPrice = $productDetails->price;
         }
 
-        $totalPrice = $qty*$Unitprice;
+        $totalPrice = $qty*$UnitPrice;
 
         $data = ProductCart::updateOrCreate(
 
@@ -203,6 +203,16 @@ class ProductController extends Controller
     }
 
     public function CartList(Request $request){
+
+         $user_id = $request->header('id');
+
+         $data = ProductCart::where('user_id','=',$user_id)->with('product')->get();
+
+         return ResponseHelper::Out('success',$data,200);
+    }
+
+
+        public function DeleteCartList(Request $request){
 
          $user_id = $request->header('id');
 
