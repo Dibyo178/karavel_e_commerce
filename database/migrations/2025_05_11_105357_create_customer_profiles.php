@@ -22,13 +22,13 @@ return new class extends Migration
             $table->string('cus_phone',50);
             $table->string('cus_fax',50);
 
-            $table->string('shop_name',100);
-            $table->string('Ship_add',100);
-            $table->string('Ship_city',100);
-            $table->string('Ship_state',100);
-            $table->string('Ship_postcode',100);
-            $table->string('Ship_country',100);
-            $table->string('Ship_phone',100);
+            $table->string('ship_name',100);
+            $table->string('ship_add',100);
+            $table->string('ship_city',100);
+            $table->string('ship_state',100);
+            $table->string('ship_postcode',100);
+            $table->string('ship_country',100);
+            $table->string('ship_phone',100);
 
 
             $table-> unsignedBigInteger('user_id')->unique;
@@ -39,6 +39,7 @@ return new class extends Migration
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            
         });
     }
 

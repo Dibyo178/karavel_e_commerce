@@ -22,6 +22,7 @@ class CustomerProfile extends Model
      'ship_postcode',
      'ship_country',
      'ship_phone',
+     'ship_add',
      'user_id',
 
    ];
