@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\MaintenanceComtroller;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
@@ -58,3 +59,20 @@ Route::get('/RemoveWishList/{product_id}',[ProductController::class,'ProductWish
 Route::post('/CreateCartList',[ProductController::class,'CreateCartList'])->middleware([TokenAuthenticate::class]);
 Route::post('/CartList',[ProductController::class,'CartList'])->middleware([TokenAuthenticate::class]);
 Route::post('/DeleteCartList/{product_id}',[ProductController::class,'DeleteCartListt'])->middleware([TokenAuthenticate::class]);
+
+// Invoice and pauyment
+
+Route::get('/IncoiceCreate' , [InvoiceController::class,'IncoiceCreate'])->middleware([TokenAuthenticate::class]);
+
+Route::get('/InvoiceList' , [InvoiceController::class,'InvoiceList'])->middleware([TokenAuthenticate::class]);
+
+Route::get('/InvoiceProductList/{invoice_id}' , [InvoiceController::class,'InvoiceProductList'])->middleware([TokenAuthenticate::class]);
+
+
+// payment
+
+Route::get('/PaymentSuccess' , [InvoiceController::class,'PaymentSuccess'])->middleware([TokenAuthenticate::class]);
+
+Route::get('/PaymentCancel' , [InvoiceController::class,'PaymentCancel'])->middleware([TokenAuthenticate::class]);
+
+Route::get('/PaymentFail' , [InvoiceController::class,'PaymentFail'])->middleware([TokenAuthenticate::class]);
