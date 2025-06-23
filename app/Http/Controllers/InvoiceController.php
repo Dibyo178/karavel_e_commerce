@@ -118,10 +118,19 @@ function PaymentSuccess(Request $request){
 
 function PaymentCancel(Request $request){
     return SSLCommerz::InitiateCancel($request->query('tran_id'));
-} 
+}
 
 function PaymentFail(Request $request){
 
+
+
      return SSLCommerz::InitiateFail($request->query('tran_id'));
+
+}
+
+function PaymentIPN(Request $request){
+
+    //  $request->get('tran_id');
+     return SSLCommerz::InitiateIPN($request->input('tran_id'),$request->input('status'),$request->input('val_id'));
 
 }

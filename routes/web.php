@@ -76,3 +76,5 @@ Route::get('/PaymentSuccess' , [InvoiceController::class,'PaymentSuccess'])->mid
 Route::get('/PaymentCancel' , [InvoiceController::class,'PaymentCancel'])->middleware([TokenAuthenticate::class]);
 
 Route::get('/PaymentFail' , [InvoiceController::class,'PaymentFail'])->middleware([TokenAuthenticate::class]);
+
+
